@@ -1,0 +1,18 @@
+{% extends 'todoapp/layout.html' %}
+
+{% block content %}
+<div class="ui container" style="margin-top: 50px;">
+    <form class="ui form" action="{% url 'update' todo_id=todo.id %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label>Задача</label>
+            <input type="text" name="title" placeholder="Введите название задачи" value="{{ todo.title }}">
+        </div>
+        <div class="field">
+            <label>Описание задачи</label>
+            <input type="text" name="description" placeholder="Введите Описание" value="{{ todo.description }}">
+        </div>
+        <button class="ui button" type="submit">Обновить</button>
+    </form>
+</div>
+{% endblock %}
